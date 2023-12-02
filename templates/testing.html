@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>แบบสอบถามประเมินความเครียดและวิธีการจัดการความเครียดของนักศึกษา</title>
+        <style>
+            body {
+                font-family: "Prompt", sans-serif;
+               
+                background-image: url("static/home.webp");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                margin: 0;
+                padding: 0;
+                color: #404040;
+            }
+
+    
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                color: rgb(240, 240, 240);
+            }
+    
+            label {
+                font-size: 18px;
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+    
+            form {
+                text-align: center;
+                margin-top: 40px;
+                max-width: 650px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 50px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 10px;
+            }
+    
+            select,
+            input[type="radio"] {
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+    
+            input[type="submit"] {
+                font-family: "Prompt", sans-serif;
+                display: block;
+                margin: 0 auto;
+                padding: 10px 20px;
+                background-color: #053673;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 20px;
+                font-weight: bold;
+                width: 100%;
+                max-width: 240px;
+                transition: background-color 0.3s;
+            }
+    
+            input[type="submit"]:hover {
+                background-color: #b1231c;
+            }
+    
+            .horizontal-options {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
+            .horizontal-options label {
+                font-size: 18px;
+                font-weight: normal;
+            }
+    
+            br {
+                margin-top: 20px;
+                display: block;
+                content: "";
+            }
+
+            .info-box {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 1200px;
+                margin: 30px auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 20px;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .info-descp {
+                display: flex;
+                align-items: center; /* Center vertically */
+                text-align: center;
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 1200px;
+                margin: 30px auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 20px;
+                gap: 20px;
+            }
+            
+            .info-descp p {
+                margin: 0; /* Remove default margin to ensure proper centering */
+            }
+            
+        </style>
+    </head>
+    
+    
+<body>
+    <h1>Self-Aware Learning: The Key to Effective Stress Coping Strategies</h1>
+    <div class="info-box">
+        <p>Increase student awareness of stress levels in classrooms and universities.</p>
+        <p>Provide personalized results clustering character traits, revealing stress levels, and suggesting coping strategies.</p>
+        <p>Empower students with tailored insights for enhanced well-being in their academic journey.</p>
+    </div><br>
+    <div class="info-descp">
+        <p>Try to think of one problem you have encountered in the last six months or so. This should be a problem that was important to you, and that caused you to worry (anything from the loss of a loved one to a traffic citation, but one that was important to you).<br>
+        Please describe this problem in a few words (remember, your answer will be kept anonymous):</p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label for="Faculty">Faculty:</label>
+        <select id="Faculty" name="Faculty">
+        <option value="" disabled selected>Select a Faculty</option>
+        <option value="Faculty of Law">Faculty of Law</option>
+        <option value="Faculty of Nursing">Faculty of Nursing</option>
+        <option value="Faculty of Medicine">Faculty of Medicine</option>
+        <option value="Faculty of Economics">Faculty of Economics</option>
+        <option value="Faculty of Engineering">Faculty of Engineering</option>
+        <option value="Faculty of Public Health">Faculty of Public Health</option>
+        <option value="Faculty of Political Science">Faculty of Political Science</option>
+        <option value="Faculty of Social Administration">Faculty of Social Administration</option>
+        <option value="Faculty of Fine and Applied Arts">Faculty of Fine and Applied Arts</option>
+        <option value="Faculty of Allied Health Sciences">Faculty of Allied Health Sciences</option>
+        <option value="Faculty of Science and Technology">Faculty of Science and Technology</option>
+        <option value="Faculty of Sociology and Anthropology">Faculty of Sociology and Anthropology</option>
+        <option value="Faculty of Commerce and Accountancy">Faculty of Commerce and Accountancy</option>
+        <option value="Faculty of Journalism and Mass Communication">Faculty of Journalism and Mass Communication</option>
+        <option value="College of Interdisciplinary Studies">College of Interdisciplinary Studies</option>
+        <option value="Sirindhorn International Institute of Technology">Sirindhorn International Institute of Technology</option>
+        </select>
+        <br>
+
+        <label>Gender:</label>
+        <div class="horizontal-options">
+        <input type="radio" id="Male" name="Gender" value="Male">
+        <label for="Male">Male</label>
+        <input type="radio" id="Female" name="Gender" value="Female">
+        <label for="Female">Female</label>
+        <input type="radio" id="N/A" name="Gender" value="N/A">
+        <label for="N/A">N/A</label>
+        <input type="radio" id="LGBTQ+" name="Gender" value="LGBTQ+">
+        <label for="LGBTQ+">LGBTQ+</label>
+        </div>
+        <br>
+
+        <label>Year:</label>
+        <div class="horizontal-options">
+        <input type="radio" id="1" name="Year" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="Year" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="Year" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="Year" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="Year" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="Year" value="6">
+        <label for="6">6</label>
+        </div>
+        <br>
+
+        <label for="Q1">How often do you experience headaches?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q1_1" name="Q1" value="1">
+        <label for="Q1_1">Never</label>
+        <input type="radio" id="Q1_2" name="Q1" value="2">
+        <label for="Q1_2">Somewhat frequent</label>
+        <input type="radio" id="Q1_3" name="Q1" value="3">
+        <label for="Q1_3">Frequent</label>
+        <input type="radio" id="Q1_4" name="Q1" value="4">
+        <label for="Q1_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q2">Do you have trouble sleeping?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q2_1" name="Q2" value="1">
+        <label for="Q2_1">Never</label>
+        <input type="radio" id="Q2_2" name="Q2" value="2">
+        <label for="Q2_2">Somewhat frequent</label>
+        <input type="radio" id="Q2_3" name="Q2" value="3">
+        <label for="Q2_3">Frequent</label>
+        <input type="radio" id="Q2_4" name="Q2" value="4">
+        <label for="Q2_4">Always</label>
+        </div>
+        <br>
+
+        <label for="Q3">How often do you feel excessively worried?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q3_1" name="Q3" value="1">
+        <label for="Q3_1">Never</label>
+        <input type="radio" id="Q3_2" name="Q3" value="2">
+        <label for="Q3_2">Somewhat frequent</label>
+        <input type="radio" id="Q3_3" name="Q3" value="3">
+        <label for="Q3_3">Frequent</label>
+        <input type="radio" id="Q3_4" name="Q3" value="4">
+        <label for="Q3_4">Always</label>
+        </div><br>
+
+        <label for="Q4">Do you experience stomach pain or nausea? How frequently?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q4_1" name="Q4" value="1">
+        <label for="Q4_1">Never</label>
+        <input type="radio" id="Q4_2" name="Q4" value="2">
+        <label for="Q4_2">Somewhat frequent</label>
+        <input type="radio" id="Q4_3" name="Q4" value="3">
+        <label for="Q4_3">Frequent</label>
+        <input type="radio" id="Q4_4" name="Q4" value="4">
+        <label for="Q4_4">Always</label>
+        </div><br>
+
+        <label for="Q5">How often do you feel tired or physically weak?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q5_1" name="Q5" value="1">
+        <label for="Q5_1">Never</label>
+        <input type="radio" id="Q5_2" name="Q5" value="2">
+        <label for="Q5_2">Somewhat frequent</label>
+        <input type="radio" id="Q5_3" name="Q5" value="3">
+        <label for="Q5_3">Frequent</label>
+        <input type="radio" id="Q5_4" name="Q5" value="4">
+        <label for="Q5_4">Always</label>
+        </div> 
+        <br>
+
+        <label for="Q6">How often do you feel guilty when you can't meet your parents' expectations?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q6_1" name="Q6" value="1">
+        <label for="Q6_1">Never</label>
+        <input type="radio" id="Q6_2" name="Q6" value="2">
+        <label for="Q6_2">Somewhat frequent</label>
+        <input type="radio" id="Q6_3" name="Q6" value="3">
+        <label for="Q6_3">Frequent</label>
+        <input type="radio" id="Q6_4" name="Q6" value="4">
+        <label for="Q6_4">Always</label>
+        </div>
+        <br>
+
+        <label for="Q7">Is it difficult for you to get along with classmates? How often does this happen?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q7_1" name="Q7" value="1">
+        <label for="Q7_1">Never</label>
+        <input type="radio" id="Q7_2" name="Q7" value="2">
+        <label for="Q7_2">Somewhat frequent</label>
+        <input type="radio" id="Q7_3" name="Q7" value="3">
+        <label for="Q7_3">Frequent</label>
+        <input type="radio" id="Q7_4" name="Q7" value="4">
+        <label for="Q7_4">Always</label>
+        </div>
+        <br>
+
+        <label for="Q8">How often do you feel upset after an argument with your significant other?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q8_1" name="Q8" value="1">
+        <label for="Q8_1">Never</label>
+        <input type="radio" id="Q8_2" name="Q8" value="2">
+        <label for="Q8_2">Somewhat frequent</label>
+        <input type="radio" id="Q8_3" name="Q8" value="3">
+        <label for="Q8_3">Frequent</label>
+        <input type="radio" id="Q8_4" name="Q8" value="4">
+        <label for="Q8_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q9">Do you feel unsupported by your teachers? How frequently?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q9_1" name="Q9" value="1">
+        <label for="Q9_1">Never</label>
+        <input type="radio" id="Q9_2" name="Q9" value="2">
+        <label for="Q9_2">Somewhat frequent</label>
+        <input type="radio" id="Q9_3" name="Q9" value="3">
+        <label for="Q9_3">Frequent</label>
+        <input type="radio" id="Q9_4" name="Q9" value="4">
+        <label for="Q9_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q10">How often do you feel overwhelmed by the management and workload of your current academic program?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q10_1" name="Q10" value="1">
+        <label for="Q10_1">Never</label>
+        <input type="radio" id="Q10_2" name="Q10" value="2">
+        <label for="Q10_2">Somewhat frequent</label>
+        <input type="radio" id="Q10_3" name="Q10" value="3">
+        <label for="Q10_3">Frequent</label>
+        <input type="radio" id="Q10_4" name="Q10" value="4">
+        <label for="Q10_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q11">Do you experience financial problems due to university expenses? How often?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q11_1" name="Q11" value="1">
+        <label for="Q11_1">Never</label>
+        <input type="radio" id="Q11_2" name="Q11" value="2">
+        <label for="Q11_2">Somewhat frequent</label>
+        <input type="radio" id="Q11_3" name="Q11" value="3">
+        <label for="Q11_3">Frequent</label>
+        <input type="radio" id="Q11_4" name="Q11" value="4">
+        <label for="Q11_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q12">How often do you feel anxious when presenting in class?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q12_1" name="Q12" value="1">
+        <label for="Q12_1">Never</label>
+        <input type="radio" id="Q12_2" name="Q12" value="2">
+        <label for="Q12_2">Somewhat frequent</label>
+        <input type="radio" id="Q12_3" name="Q12" value="3">
+        <label for="Q12_3">Frequent</label>
+        <input type="radio" id="Q12_4" name="Q12" value="4">
+        <label for="Q12_4">Always</label>
+        </div>
+        <br>
+   
+        <label for="Q13">How often do you feel stressed to sit for examination?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q13_1" name="Q13" value="1">
+        <label for="Q13_1">Never</label>
+        <input type="radio" id="Q13_2" name="Q13" value="2">
+        <label for="Q13_2">Somewhat frequent</label>
+        <input type="radio" id="Q13_3" name="Q13" value="3">
+        <label for="Q13_3">Frequent</label>
+        <input type="radio" id="Q13_4" name="Q13" value="4">
+        <label for="Q13_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q14">Has your interest in the course content decreased? How often?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q14_1" name="Q14" value="1">
+        <label for="Q14_1">Never</label>
+        <input type="radio" id="Q14_2" name="Q14" value="2">
+        <label for="Q14_2">Somewhat frequent</label>
+        <input type="radio" id="Q14_3" name="Q14" value="3">
+        <label for="Q14_3">Frequent</label>
+        <input type="radio" id="Q14_4" name="Q14" value="4">
+        <label for="Q14_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q15">How often do you feel stressed dealing with difficult or unfamiliar subjects?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q15_1" name="Q15" value="1">
+        <label for="Q15_1">Never</label>
+        <input type="radio" id="Q15_2" name="Q15" value="2">
+        <label for="Q15_2">Somewhat frequent</label>
+        <input type="radio" id="Q15_3" name="Q15" value="3">
+        <label for="Q15_3">Frequent</label>
+        <input type="radio" id="Q15_4" name="Q15" value="4">
+        <label for="Q15_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q16">How often do you feel stressed due to poor living conditions?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q16_1" name="Q16" value="1">
+        <label for="Q16_1">Never</label>
+        <input type="radio" id="Q16_2" name="Q16" value="2">
+        <label for="Q16_2">Somewhat frequent</label>
+        <input type="radio" id="Q16_3" name="Q16" value="3">
+        <label for="Q16_3">Frequent</label>
+        <input type="radio" id="Q16_4" name="Q16" value="4">
+        <label for="Q16_4">Always</label>
+        </div>
+        <br>
+    
+        <label for="Q17">Do surrounding noises affect your concentration? How often?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q17_1" name="Q17" value="1">
+        <label for="Q17_1">Never</label>
+        <input type="radio" id="Q17_2" name="Q17" value="2">
+        <label for="Q17_2">Somewhat frequent</label>
+        <input type="radio" id="Q17_3" name="Q17" value="3">
+        <label for="Q17_3">Frequent</label>
+        <input type="radio" id="Q17_4" name="Q17" value="4">
+        <label for="Q17_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q18">Does an unorganized living environment affect your concentration? How often?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q18_1" name="Q18" value="1">
+        <label for="Q18_1">Never</label>
+        <input type="radio" id="Q18_2" name="Q18" value="2">
+        <label for="Q18_2">Somewhat frequent</label>
+        <input type="radio" id="Q18_3" name="Q18" value="3">
+        <label for="Q18_3">Frequent</label>
+        <input type="radio" id="Q18_4" name="Q18" value="4">
+        <label for="Q18_4">Always</label>
+        </div>
+        <br>
+    
+        <label for="Q19">How often do you experience discomfort in sleeping due to conflicts and disturbances?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q19_1" name="Q19" value="1">
+        <label for="Q19_1">Never</label>
+        <input type="radio" id="Q19_2" name="Q19" value="2">
+        <label for="Q19_2">Somewhat frequent</label>
+        <input type="radio" id="Q19_3" name="Q19" value="3">
+        <label for="Q19_3">Frequent</label>
+        <input type="radio" id="Q19_4" name="Q19" value="4">
+        <label for="Q19_4">Always</label>
+        </div>
+        <br>
+        
+        <label for="Q20">How often do you feel afraid in an unfamiliar place?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q20_1" name="Q20" value="1">
+        <label for="Q20_1">Never</label>
+        <input type="radio" id="Q20_2" name="Q20" value="2">
+        <label for="Q20_2">Somewhat frequent</label>
+        <input type="radio" id="Q20_3" name="Q20" value="3">
+        <label for="Q20_3">Frequent</label>
+        <input type="radio" id="Q20_4" name="Q20" value="4">
+        <label for="Q20_4">Always</label>
+        </div>
+        <br>
+    
+        <label for="Q21">Do you frequently consider various options?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q21_1" name="Q21" value="1">
+        <label for="Q21_1">Not at all</label>
+        <input type="radio" id="Q21_2" name="Q21" value="2">
+        <label for="Q21_2">A little</label>
+        <input type="radio" id="Q21_3" name="Q21" value="3">
+        <label for="Q21_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q22">How often do you attempt to solve a problem using diverse methods until you find the most effective solution?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q22_1" name="Q22" value="1">
+        <label for="Q22_1">Not at all</label>
+        <input type="radio" id="Q22_2" name="Q22" value="2">
+        <label for="Q22_2">A little</label>
+        <input type="radio" id="Q22_3" name="Q22" value="3">
+        <label for="Q22_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q23">Do you concentrate all your attention and interest on problem-solving?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q23_1" name="Q23" value="1">
+        <label for="Q23_1">Not at all</label>
+        <input type="radio" id="Q23_2" name="Q23" value="2">
+        <label for="Q23_2">A little</label>
+        <input type="radio" id="Q23_3" name="Q23" value="3">
+        <label for="Q23_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q24">How often do you actively try to solve problems?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q24_1" name="Q24" value="1">
+        <label for="Q24_1">Not at all</label>
+        <input type="radio" id="Q24_2" name="Q24" value="2">
+        <label for="Q24_2">A little</label>
+        <input type="radio" id="Q24_3" name="Q24" value="3">
+        <label for="Q24_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q25">Instead of succumbing to situational pressure, how often do you meticulously plan actions?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q25_1" name="Q25" value="1">
+        <label for="Q25_1">Not at all</label>
+        <input type="radio" id="Q25_2" name="Q25" value="2">
+        <label for="Q25_2">A little</label>
+        <input type="radio" id="Q25_3" name="Q25" value="3">
+        <label for="Q25_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q26">How often do you share your feelings with friends?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q26_1" name="Q26" value="1">
+        <label for="Q26_1">Not at all</label>
+        <input type="radio" id="Q26_2" name="Q26" value="2">
+        <label for="Q26_2">A little</label>
+        <input type="radio" id="Q26_3" name="Q26" value="3">
+        <label for="Q26_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q27">Do you often accept understanding and perspectives from others?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q27_1" name="Q27" value="1">
+        <label for="Q27_1">Not at all</label>
+        <input type="radio" id="Q27_2" name="Q27" value="2">
+        <label for="Q27_2">A little</label>
+        <input type="radio" id="Q27_3" name="Q27" value="3">
+        <label for="Q27_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q28">How frequently do you trust friends or relatives to talk about your worries or fears?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q28_1" name="Q28" value="1">
+        <label for="Q28_1">Not at all</label>
+        <input type="radio" id="Q28_2" name="Q28" value="2">
+        <label for="Q28_2">A little</label>
+        <input type="radio" id="Q28_3" name="Q28" value="3">
+        <label for="Q28_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q29">How often do you discuss problems with others to find a solution?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q29_1" name="Q29" value="1">
+        <label for="Q29_1">Not at all</label>
+        <input type="radio" id="Q29_2" name="Q29" value="2">
+        <label for="Q29_2">A little</label>
+        <input type="radio" id="Q29_3" name="Q29" value="3">
+        <label for="Q29_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q30">Do you occasionally seek help from someone (friend or expert) to feel better?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q30_1" name="Q30" value="1">
+        <label for="Q30_1">Not at all</label>
+        <input type="radio" id="Q30_2" name="Q30" value="2">
+        <label for="Q30_2">A little</label>
+        <input type="radio" id="Q30_3" name="Q30" value="3">
+        <label for="Q30_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q31">How often do you distance yourself from problems?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q31_1" name="Q31" value="1">
+        <label for="Q31_1">Not at all</label>
+        <input type="radio" id="Q31_2" name="Q31" value="2">
+        <label for="Q31_2">A little</label>
+        <input type="radio" id="Q31_3" name="Q31" value="3">
+        <label for="Q31_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q32">How often do you spend time alone?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q32_1" name="Q32" value="1">
+        <label for="Q32_1">Not at all</label>
+        <input type="radio" id="Q32_2" name="Q32" value="2">
+        <label for="Q32_2">A little</label>
+        <input type="radio" id="Q32_3" name="Q32" value="3">
+        <label for="Q32_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q33">Do you avoid being with people in your daily life?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q33_1" name="Q33" value="1">
+        <label for="Q33_1">Not at all</label>
+        <input type="radio" id="Q33_2" name="Q33" value="2">
+        <label for="Q33_2">A little</label>
+        <input type="radio" id="Q33_3" name="Q33" value="3">
+        <label for="Q33_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q34">How often do you engage in sports or hobbies to divert attention from arising problems?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q34_1" name="Q34" value="1">
+        <label for="Q34_1">Not at all</label>
+        <input type="radio" id="Q34_2" name="Q34" value="2">
+        <label for="Q34_2">A little</label>
+        <input type="radio" id="Q34_3" name="Q34" value="3">
+        <label for="Q34_3">A lot</label>
+        </div>
+        <br>
+        
+        <label for="Q35">Do you sleep more than usual?</label><br>
+        <div class="horizontal-options">
+        <input type="radio" id="Q35_1" name="Q35" value="1">
+        <label for="Q35_1">Not at all</label>
+        <input type="radio" id="Q35_2" name="Q35" value="2">
+        <label for="Q35_2">A little</label>
+        <input type="radio" id="Q35_3" name="Q35" value="3">
+        <label for="Q35_3">A lot</label>
+        </div>
+        <br>
+
+        <input type="submit" formaction="/result_testing" value="See result">
+
+    </form>
+</body>
+</html>
