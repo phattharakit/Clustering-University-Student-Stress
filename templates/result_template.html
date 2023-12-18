@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>RESULT-TESTING</title>
     <style>
         body {
@@ -22,39 +25,52 @@
           }
 
         body[data-cluster="The Chill Crew"] {
-            background-image: url('/static/chill.jpg');
+            background-image: url('/static/home.webp');
             min-height: 100%;
             background-position: center;
             background-size: cover;
         }
 
         body[data-cluster="The Life Balancers"] {
-            background-image: url('/static/balance.jpg');
+            background-image: url('/static/home.webp');
             min-height: 100%;
             background-position: center;
             background-size: cover;
         }
 
         body[data-cluster="The Always Fighters"] {
-            background-image: url('/static/fighter.jpg');
+            background-image: url('/static/home.webp');
             min-height: 100%;
             background-position: center;
             background-size: cover;
         }
 
         h1 {
+            font-family: "Prompt", sans-serif;
             text-align: center;
             margin: 20px 0;
+            font-weight: bold;
+            font-size: 36px;
+        }
+        h3 {
+            font-family: "Prompt", sans-serif;
+            font-weight: bold;
         }
 
         .content {
             text-align: center;
-            margin: 20px 0;
+            font-family: "Prompt", sans-serif;
+            margin-left: 50px;
+            margin-right: 50px;
+            font-size: 30px;
+            margin-top: 15px;
         }
 
         .character-info {
             font-size: 20px;
-            margin-top: 10px;
+            margin-top: 5px;
+            font-family: "Prompt", sans-serif;
+            
         }
 
         .stress-section {
@@ -103,72 +119,147 @@
         .inline-meter.meter-coping meter::-webkit-meter-optimum-value {
             background: linear-gradient(to right, #0088ff 25%, #0066ff 50%, #0029ff 75%, #0000ff 100%);
         }
+        
+        .language-switch {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .language-switch button {
+            margin: 5px;
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+            
     </style>
 </head>
 
 <body data-cluster="{{ data[0].Cluster }}">
-    <h1>PERSONALITY TEST</h1>
+    <div class="w3-display-topright w3-padding-large">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('th')">ไทย</button>
+    </div>
+    <h1 id="congrats" >Congrats! You are part of......</h1>
     <hr style="margin: auto; width: 40%; border-color: #ccc;">
 
     <div class="content">
-        <h2>{{ data[0].Cluster }}</h2>
-        <div class="character-info">
+        <h2 class="content" >{{ data[0].Cluster }}</h2>
+        <div class="character-info" id="character-info">
             {% if data[0].Cluster == "The Chill Crew" %}
-                <p><strong>My Character:</strong> Members of this cluster exhibited consistently lower stress levels, showcasing a commendable mastery of proactive coping strategies. The emphasis on problem-solving and seeking social support reflects an overall calm and adaptive approach to stress management. The findings suggest that interventions for this group could focus on maintaining and enhancing these positive coping behaviors.</p>
+                <p><strong>My Character:</strong> Individuals in this cluster are like the cool, collected superheroes of stress management. They consistently keep their stress levels low, showcasing an impressive capacity for practical coping strategies. It's as if they have a secret handbook on staying calm during chaos. What sets them apart is their focus on problem-solving and seeking support from friends, highlighting an overall calm and adaptive approach to handling stress.</p>
             {% elif data[0].Cluster == "The Life Balancers" %}
-                <p><strong>My Character:</strong> Hello, life balancer!</p>
+                <p><strong>My Character:</strong> Meet the life jugglers who seamlessly balance the demands of academics and physical stress. Members of this group display a nuanced approach to stress management, maintaining balance in the face of challenges. Their preference for independent problem-solving suggests a self-confident nature, while noting that they might lean towards avoidance if problem-solving isn't their best suit. Both indicates a balanced strategy for navigating stress with resilience.</p>
             {% elif data[0].Cluster == "The Always Fighters" %}
-                <p><strong>My Character:</strong> Keep fighting!</p>
+                <p><strong>My Character:</strong> In the realm of high stress, these individuals are enduring warriors, always ready for the next battle. Members of this cluster consistently face high stress levels across various factors. What makes them stand out is their diverse way of coping mechanisms. It's like they have a collection of strategies, deploying different tactics depending on the situation. Their spirit shines through as they face stress directly, showcasing adaptability and toughness in the face of hard times.</p>
             {% endif %}
         </div>
     </div>
 
-
     <div class="stress-section">
-        <h3>My Stress</h3>
+        <h3 id="mystress" >Knowing My Stress</h3>
         <div class="meter-container">
             <div class="inline-meter">
                 <div class="inline-meter meter-stress">
-                    <p>PHYSICAL</p>
+                    <p id="physical" >PHYSICAL</p>
                     <meter value="{{ data[0].PHYSICAL }}" min="0" max="20">{{ '%.1f%%'|format(data[0].PHYSICAL) }}</meter>
                 </div>
                 <div class="inline-meter meter-stress">
-                    <p>RELATIONSHIP</p>
+                    <p id="relationship" >RELATIONSHIP</p>
                     <meter value="{{ data[0].RELATIONSHIP }}" min="0" max="20">{{ '%.1f%%'|format(data[0].RELATIONSHIP) }}</meter>
             </div>
             </div>
             <div class="inline-meter">
                 <div class="inline-meter meter-stress">
-                    <p>ACADEMIC</p>
+                    <p id="academic" >ACADEMIC</p>
                     <meter value="{{ data[0].ACADEMIC }}" min="0" max="20">{{ '%.1f%%'|format(data[0].ACADEMIC) }}</meter>
                 </div>
                 <div class="inline-meter meter-stress">
-                    <p>ENVIRONMENTAL</p>
+                    <p id="environment" >ENVIRONMENTAL</p>
                     <meter value="{{ data[0].ENVIRONMENTAL }}" min="0" max="20">{{ '%.1f%%'|format(data[0].ENVIRONMENTAL) }}</meter>
                 </div>
             </div>
         </div>
     </div>
-    
-
 
     <div class="stress-section">
-        <h3>My Coping Strategies</h3>
+        <h3 id="mycoping" >Knowing My Coping Strategies</h3>
         <div class="meter-container">
             <div class="inline-meter meter-coping">
-                <p>PROBLEM-SOLVING</p>
+                <p id="problem" >PROBLEM-SOLVING</p>
                 <meter value="{{ data[0]['PROBLEM-SOLVING'] }}" min="0" max="20">{{ '%.1f%%'|format(data[0]['PROBLEM-SOLVING']) }}</meter>
             </div>
             <div class="inline-meter meter-coping">
-                <p>SEEKING-SOCIAL-SUPPORT</p>
+                <p id="seeking" >SEEKING-SOCIAL-SUPPORT</p>
                 <meter value="{{ data[0]['SEEKING-SOCIAL-SUPPORT'] }}" min="0" max="20">{{ '%.1f%%'|format(data[0]['SEEKING-SOCIAL-SUPPORT']) }}</meter>
             </div>
             <div class="inline-meter meter-coping">
-                <p>AVOIDANCE</p>
+                <p id="avoidance" >AVOIDANCE</p>
                 <meter value="{{ data[0].AVOIDANCE }}" min="0" max="20">{{ '%.1f%%'|format(data[0].AVOIDANCE) }}</meter>
             </div>
         </div>
     </div>
+
+    <script>
+        const languageContent = {
+            en: {
+                congrats: 'Congrats! You are part of......',
+                characterInfo: {
+                    'The Chill Crew': "Individuals in this cluster are like the cool, collected superheroes of stress management. They consistently keep their stress levels low, showcasing an impressive capacity for practical coping strategies. It's as if they have a secret handbook on staying calm during chaos. What sets them apart is their focus on problem-solving and seeking support from friends, highlighting an overall calm and adaptive approach to handling stress.",
+                    'The Life Balancers': "Meet the life jugglers who seamlessly balance the demands of academics and physical stress. Members of this group display a nuanced approach to stress management, maintaining balance in the face of challenges. Their preference for independent problem-solving suggests a self-confident nature, while noting that they might lean towards avoidance if problem-solving isn't their best suit. Both indicates a balanced strategy for navigating stress with resilience.",
+                    'The Always Fighters': "In the realm of high stress, these individuals are enduring warriors, always ready for the next battle. Members of this cluster consistently face high stress levels across various factors. What makes them stand out is their diverse way of coping mechanisms. It's like they have a collection of strategies, deploying different tactics depending on the situation. Their spirit shines through as they face stress directly, showcasing adaptability and toughness in the face of hard times.",
+                },
+                mystress: 'Knowing My Stress',
+                mycoping: 'Knowing My Coping Strategies',
+                physical: 'PHYSICAL',
+                relationship: 'RELATIONSHIP',
+                academic: 'ACADEMIC',
+                environment: 'ENVIRONMENTAL',
+                problem: 'PROBLEM-SOLVING',
+                seeking: 'SEEKING-SOCIAL-SUPPORT',
+                avoidance: 'AVOIDANCE',
+            },
+            th: {
+                congrats: 'ยินดีด้วย! คุณเป็นส่วนหนึ่งของ......',
+                characterInfo: {
+                    'The Chill Crew': 'กลุ่มคนที่มีระดับความเครียดต่ำทุกด้าน ชอบที่จะแก้ไขปัญหาด้วยตนเองและมีความสามารถในการหาทางแก้ไขปัญหาด้วยตนเอง นอกจากนี้ยังพบว่าพวกเขามีความพร้อมที่จะหาการสนับสนุนทางสังคม เช่นเพื่อน หรือ ครอบครัว เมื่อต้องการ กลุ่มนี้มักจะมีทัศนคติที่ผ่อนคลายและพร้อมที่จะรับมือกันสถานการณ์โดยไม่ให้ความเครียดมีอิทธิพลมากนัก',
+                    'The Life Balancers': 'กลุ่มคนที่มีความเครียดด้านการเรียนและทางด้านร่างกาย พวกเขามีความตั้งใจที่จะแก้ไขปัญหาด้วยตนเอง และโอกาสที่จะหลีกหนีปัญหาที่พบเจอ แต่ด้วยระดับความเครียดที่ไม่สูงมากและการรับมือปัญหาที่มีประสิทธิภาพ ทำให้คนกลุ่มนี้มีความสามารถในการรักษาสมดุลของความเครียดในดี',
+                    'The Always Fighters': 'กลุ่มคนที่มีระดับความเครียดสูงทุกด้าน พวกเขามีความเครียดในทุกแง่มุมของชีวิต มีนิสัยที่จะแก้ไขปัญหาด้วยตนเอง, ค้นหาการสนับสนุนทางสังคม, และหลีกหนีปัญหา เรียกได้ว่าลองทุกวิธีที่ลองได้สำหรับแต่ละปัญหาที่แตกต่างกันออกไป นอกจากนี้ พวกเขามักจะเผชิญกับทุกสถานการณ์ด้วยความมุ่งมั่นและไม่ยย่อท้อต่อความท้าทาย',
+                },
+                mystress: 'รู้จักกับความเครียดของฉัน',
+                mycoping: 'รู้จักกับวิธีการรับมือของฉัน',
+                physical: 'การกายภาพ',
+                relationship: 'ทางความสัมพันธ์',
+                academic: 'ทางการศึกษา',
+                environment: 'ทางสภาพแวดล้อม',
+                problem: 'แก้ไขปัญหาด้วยตนเอง',
+                seeking: 'ขอความช่วยเหลือจากคนอื่น',
+                avoidance: 'หลีกเลี่ยงปัญหา',
+            },
+        };
+    
+        function changeLanguage(language) {
+            const clusterName = document.querySelector('.content h2').textContent.trim();
+            const characterInfo = document.getElementById('character-info');
+
+            if (languageContent[language].characterInfo.hasOwnProperty(clusterName)) {
+                characterInfo.innerHTML = `<p><strong>My Character:</strong> ${languageContent[language].characterInfo[clusterName]}</p>`;
+            }
+            document.getElementById('congrats').textContent = languageContent[language].congrats;
+            document.getElementById('mystress').textContent = languageContent[language].mystress;
+            document.getElementById('mycoping').textContent = languageContent[language].mycoping;
+            document.getElementById('physical').textContent = languageContent[language].physical;
+            document.getElementById('relationship').textContent = languageContent[language].relationship;
+            document.getElementById('academic').textContent = languageContent[language].academic;
+            document.getElementById('environment').textContent = languageContent[language].environment;
+            document.getElementById('problem').textContent = languageContent[language].problem;
+            document.getElementById('seeking').textContent = languageContent[language].seeking;
+            document.getElementById('avoidance').textContent = languageContent[language].avoidance;
+        }
+    
+        changeLanguage('en');
+    </script>
+    
+            
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>HOMEPAGE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,56 +9,97 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Prompt", sans-serif}
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Prompt", sans-serif
+        }
 
-    body, html {
-      height: 100%;
-      line-height: 1.8;
-    }
+        body,
+        html {
+            height: 100%;
+            line-height: 1.8;
+        }
 
-    /* Full height image header */
-    .bgimg-1 {
-      background-position: center;
-      background-size: cover;
-      background-image: url("static/home.webp");
-      min-height: 100%;
-    }
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("static/home.webp");
+            min-height: 100%;
+        }
 
-    .w3-bar .w3-button {
-      padding: 16px;
-    }
-    .w3-center,
-    .w3-display-bottomleft,
-    .w3-display-bottomright {
-      color: white; /* เปลี่ยนสีเป็นดำ */
-      font-weight: bold; /* ทำให้อักษรหนา */
-    }
-    .w3-jumbo {
-      font-weight: bold;
-  }
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        .w3-center,
+        .w3-display-bottomleft,
+        .w3-display-bottomright {
+            color: white;
+            font-weight: bold;
+        }
+
+        .w3-jumbo {
+            font-weight: bold;
+        }
     </style>
-  </head>
+</head>
+
 <body>
 
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+            <span id="greeting" class="w3-jumbo w3-hide-small"></span><br>
+            <span class="w3-xxlarge w3-hide-large w3-hide-medium"></span><br>
+            <span id="message1" class="w3-large"></span><br>
+            <span id="message2" class="w3-large"></span><br>
+            <span class="w3-large"></span>
+            <p><a id="talkButton" href="/testing" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off"></a></p>
+        </div>
+        <div class="w3-display-bottomleft w3-padding-large">
+            Presented by <a href="https://cis.tu.ac.th/" target="_blank" style="color: white; font-weight: bold;">CISTU</a>
+        </div>
 
+        <div class="w3-display-topright w3-padding-large">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('th')">ไทย</button>
+        </div>
+    </header>
 
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small">How are you doing?</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">How are you doing?</span><br>
-    <span class="w3-large">In the symphony of student life, stress is just one note. Assess it with curiosity,</span><br>
-    <span class="w3-large">compose your coping strategies with intention, and let the melody of resilience guide you through the chapters of growth.</span>
-    <p><a href="/testing" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Let's talk</a></p>
-  </div> 
-  <div class="w3-display-bottomleft w3-padding-large">
-    Presented by <a href="https://cis.tu.ac.th/" target="_blank" style="color: white; font-weight: bold;">CISTU</a>
-  </div>
+    <script>
 
-</header>
+        const languageContent = {
+            en: {
+                greeting: 'How are you doing?',
+                message1: 'In the symphony of student life, stress is just one note. Assess it with curiosity,',
+                message2: 'compose your coping strategies with intention, and let the melody of resilience guide you through the chapters of growth.',
+                talkButton: "Let's talk"
+            },
+            th: {
+                greeting: 'วันนี้เป็นอย่างไรบ้าง?',
+                message1: 'ทุกวันนี้เราต้องพบกับการเปลี่ยนแปลงที่เร็วขึ้นและท้าทายมากขึ้นในชีวิตประจำวัน ทำให้ความเครียดเป็นส่วนสำคัญของการดำเนินชีวิต เราเข้าใจว่าการจัดการความเครียดไม่ได้มีทางเดียว',
+                message2: 'เพราะฉะนั้นเราจึงมุ่งมั่นที่จะให้คุณพบวิธีที่เหมาะสมที่สุดสำหรับคุณเอง และทำให้คุณเข้าใจตัวเองมากขึ้น เพราะเพื่อนสนิทที่ดีที่สุดของเราคือตัวเราเอง',
+                talkButton: "เริ่มเลย"
+            }
+        };
 
-</script>
+        function changeLanguage(language) {
+            document.getElementById('greeting').textContent = languageContent[language].greeting;
+            document.getElementById('message1').textContent = languageContent[language].message1;
+            document.getElementById('message2').textContent = languageContent[language].message2;
+            document.getElementById('talkButton').textContent = languageContent[language].talkButton;
+        }
+
+        changeLanguage('en');
+    </script>
 
 </body>
+
 </html>

@@ -130,7 +130,7 @@ def alonecluster_data():
         'Q26': [Q26],'Q27': [Q27],'Q28': [Q28],'Q29': [Q29],'Q30': [Q30],
         'Q31': [Q31],'Q32': [Q32],'Q33': [Q33],'Q34': [Q34],'Q35': [Q35]})
 
-    file_path = '/Users/phattharakit_/DSI473/Stress_Clustering.pkl'
+    file_path = '/Users/phattharakit_/Desktop/application/Stress_Clustering.pkl'
     df = predict_pca_newdata(df, file_path)
     # try:
     #     with open(file_path, 'rb') as file:

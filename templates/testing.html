@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>แบบสอบถามประเมินความเครียดและวิธีการจัดการความเครียดของนักศึกษา</title>
         <style>
             body {
@@ -20,6 +25,9 @@
                 text-align: center;
                 margin-top: 50px;
                 color: rgb(240, 240, 240);
+                font-family: "Prompt", sans-serif;
+                font-weight: bold;
+                font-size: 36px;
             }
     
             label {
@@ -85,21 +93,22 @@
             }
 
             .info-box {
-                display: flex;
+                display: block;
                 flex-direction: row;
                 justify-content: space-between;
                 max-width: 1200px;
-                margin: 30px auto;
-                padding: 20px;
+                margin: 20px auto;
+                padding: 30px;
                 background-color: rgba(255, 255, 255, 0.8);
                 border-radius: 20px;
                 text-align: center;
-                gap: 20px;
+                gap: 30px;
+                font-size: 22px;
             }
             
             .info-descp {
                 display: flex;
-                align-items: center; /* Center vertically */
+                align-items: center; 
                 text-align: center;
                 flex-direction: row;
                 justify-content: space-between;
@@ -109,10 +118,23 @@
                 background-color: rgba(255, 255, 255, 0.8);
                 border-radius: 20px;
                 gap: 20px;
+                font-size: 18px;
             }
             
             .info-descp p {
-                margin: 0; /* Remove default margin to ensure proper centering */
+                margin: 0;
+            }
+            
+            .language-switch {
+            text-align: center;
+            margin-top: 20px;
+            }
+
+            .language-switch button {
+                margin: 5px;
+                padding: 8px 16px;
+                font-size: 16px;
+                cursor: pointer;
             }
             
         </style>
@@ -120,22 +142,26 @@
     
     
 <body>
-    <h1>Self-Aware Learning: The Key to Effective Stress Coping Strategies</h1>
+    <h1 id="surveyTitle">Self-Aware Learning: The Key to Effective Stress Coping Strategies</h1>
     <div class="info-box">
-        <p>Increase student awareness of stress levels in classrooms and universities.</p>
-        <p>Provide personalized results clustering character traits, revealing stress levels, and suggesting coping strategies.</p>
-        <p>Empower students with tailored insights for enhanced well-being in their academic journey.</p>
+        <p id="Intro1">Increase student awareness of stress levels in classrooms and universities.</p>
+        <p id="Intro2">Empower students with tailored insights for enhanced well-being in their academic journey.</p>
+        <p id="Intro3">Provide personalized results clustering character traits, revealing stress levels, and coping strategies.</p>
+
     </div><br>
     <div class="info-descp">
-        <p>Try to think of one problem you have encountered in the last six months or so. This should be a problem that was important to you, and that caused you to worry (anything from the loss of a loved one to a traffic citation, but one that was important to you).<br>
-        Please describe this problem in a few words (remember, your answer will be kept anonymous):</p>
+        <p id="questionIntro">Try to think of one problem you have encountered in the last six months or so. This should be a problem that was important to you, and that caused you to worry (anything from the loss of a loved one to a traffic citation, but one that was important to you).</p>
+    </div>
+    <div class="w3-display-topright w3-padding-large">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('th')">ไทย</button>
     </div>
 
     <form method="POST" enctype="multipart/form-data">
 
-        <label for="Faculty">Faculty:</label>
+        <label id="Faculty" for="Faculty">Faculty</label>
         <select id="Faculty" name="Faculty">
-        <option value="" disabled selected>Select a Faculty</option>
+        <option id= "facultyOptions" value="" disabled selected>Select a Faculty</option>
         <option value="Faculty of Law">Faculty of Law</option>
         <option value="Faculty of Nursing">Faculty of Nursing</option>
         <option value="Faculty of Medicine">Faculty of Medicine</option>
@@ -155,7 +181,7 @@
         </select>
         <br>
 
-        <label>Gender:</label>
+        <label id="Gender">Gender</label>
         <div class="horizontal-options">
         <input type="radio" id="Male" name="Gender" value="Male">
         <label for="Male">Male</label>
@@ -163,12 +189,12 @@
         <label for="Female">Female</label>
         <input type="radio" id="N/A" name="Gender" value="N/A">
         <label for="N/A">N/A</label>
-        <input type="radio" id="LGBTQ+" name="Gender" value="LGBTQ+">
+        <input type="radio" id="LGBTQ" name="Gender" value="LGBTQ+">
         <label for="LGBTQ+">LGBTQ+</label>
         </div>
         <br>
 
-        <label>Year:</label>
+        <label id="Year" >Year</label>
         <div class="horizontal-options">
         <input type="radio" id="1" name="Year" value="1">
         <label for="1">1</label>
@@ -248,7 +274,7 @@
         </div> 
         <br>
 
-        <label for="Q6">How often do you feel guilty when you can't meet your parents' expectations?</label><br>
+        <label for="Q6">How often do you feel guilty when you can't meet your parent's expectations?</label><br>
         <div class="horizontal-options">
         <input type="radio" id="Q6_1" name="Q6" value="1">
         <label for="Q6_1">Never</label>
@@ -611,5 +637,228 @@
         <input type="submit" formaction="/result_testing" value="See result">
 
     </form>
+    <script>
+        const languageContent = {
+            en: {
+                surveyTitle: 'Self-Aware Learning: The Key to Effective Stress Coping Strategies',
+                Intro1: 'Increase student awareness of stress levels in classrooms and universities.',
+                Intro2: 'Empower students with tailored insights for enhanced well-being in their academic journey.',
+                Intro3: 'Provide personalized results clustering character traits, revealing stress levels, and coping strategies.',
+                questionIntro: 'Try to think of one problem you have encountered in the last six months or so. This should be a problem that was important to you, and that caused you to worry (anything from the loss of a loved one to a traffic citation, but one that was important to you).',
+                Faculty: 'Faculty',
+                facultyOptions: {
+                    'Select a Faculty': 'Select a Faculty',
+                    'Faculty of Law': 'Faculty of Law',
+                    'Faculty of Nursing': 'Faculty of Nursing',
+                    'Faculty of Medicine': 'Faculty of Medicine',
+                    'Faculty of Economics': 'Faculty of Economics',
+                    'Faculty of Engineering': 'Faculty of Engineering',
+                    'Faculty of Public Health': 'Faculty of Public Health',
+                    'Faculty of Political Science': 'Faculty of Political Science',
+                    'Faculty of Social Administration': 'Faculty of Social Administration',
+                    'Faculty of Fine and Applied Arts': 'Faculty of Fine and Applied Arts',
+                    'Faculty of Allied Health Sciences': 'Faculty of Allied Health Sciences',
+                    'Faculty of Science and Technology': 'Faculty of Science and Technology',
+                    'Faculty of Sociology and Anthropology': 'Faculty of Sociology and Anthropology',
+                    'Faculty of Commerce and Accountancy': 'Faculty of Commerce and Accountancy',
+                    'Faculty of Journalism and Mass Communication': 'Faculty of Journalism and Mass Communication',
+                    'College of Interdisciplinary Studies': 'College of Interdisciplinary Studies',
+                    'Sirindhorn International Institute of Technology': 'Sirindhorn International Institute of Technology'
+                },
+                Gender: 'Gender',
+                genderOptions: {
+                    'Male': 'Male',
+                    'Female': 'Female',
+                    'N/A': 'N/A',
+                    'LGBTQ+': 'LGBTQ+'
+                },
+                year: 'Year',
+                questions: {
+                    Q1: 'How often do you experience headaches?',
+                    Q2: 'Do you have trouble sleeping?',
+                    Q3: 'How often do you feel excessively worried?',
+                    Q4: 'Do you experience stomach pain or nausea? How frequently?',
+                    Q5: 'How often do you feel tired or physically weak?',
+                    Q6: "How often do you feel guilty when you can't meet your parent's expectations?",
+                    Q7: 'Is it difficult for you to get along with classmates? How often does this happen?',
+                    Q8: 'How often do you feel upset after an argument with your significant other?',
+                    Q9: 'Do you feel unsupported by your teachers? How frequently?',
+                    Q10: 'How often do you feel overwhelmed by the management and workload of your current academic program?',
+                    Q11: 'Do you experience financial problems due to university expenses? How often?',
+                    Q12: 'How often do you feel anxious when presenting in class?',
+                    Q13: 'How often do you feel stressed to sit for examination?',
+                    Q14: 'Has your interest in the course content decreased? How often?',
+                    Q15: 'How often do you feel stressed dealing with difficult or unfamiliar subjects?',
+                    Q16: 'How often do you feel stressed due to poor living conditions?',
+                    Q17: 'Do surrounding noises affect your concentration? How often?',
+                    Q18: 'Does an unorganized living environment affect your concentration? How often?',
+                    Q19: 'How often do you experience discomfort in sleeping due to conflicts and disturbances?',
+                    Q20: 'How often do you feel afraid in an unfamiliar place?',
+                    Q21: 'Do you frequently consider various options?',
+                    Q22: 'How often do you attempt to solve a problem using diverse methods until you find the most effective solution?',
+                    Q23: 'Do you concentrate all your attention and interest on problem-solving?' ,
+                    Q24: 'How often do you actively try to solve problems?',
+                    Q25: 'Instead of succumbing to situational pressure, how often do you meticulously plan actions?',
+                    Q26: 'How often do you share your feelings with friends?',
+                    Q27: 'Do you often accept understanding and perspectives from others?',
+                    Q28: 'How frequently do you trust friends or relatives to talk about your worries or fears?',
+                    Q29: 'How often do you discuss problems with others to find a solution?',
+                    Q30: 'Do you occasionally seek help from someone (friend or expert) to feel better?',
+                    Q31: 'How often do you distance yourself from problems?',
+                    Q32: 'How often do you spend time alone?',
+                    Q33: 'Do you avoid being with people in your daily life?',
+                    Q34: 'How often do you engage in sports or hobbies to divert attention from arising problems?',
+                    Q35: 'Do you sleep more than usual?',
+                },
+                options: {
+                    'Never': 'Never',
+                    'Somewhat frequent': 'Somewhat frequent',
+                    'Frequent': 'Frequent',
+                    'Always': 'Always',
+                    'Not at all': 'Not at all',
+                    'A little': 'A little',
+                    'A lot': 'A lot',
+                },
+                seeResultButton: 'See result'
+            },
+            th: {
+                surveyTitle: 'การเข้าใจตัวเองเป็นกุญแจของความสุข',
+                Intro1: 'เพิ่มความตระหนักรู้เกี่ยวกับความเครียดในมหาวิทยาลัยให้กับนักศึกษา',
+                Intro2: 'ส่งเสริมความเป็นอยู่ที่ดีในระหว่างการเรียนมหาวิทยาลัยด้วยข้อมูลวิเคราะห์แบบเฉพาะกลุ่มให้แก่นักศึกษา',
+                Intro3: 'นำเสนอผลวิเคราะห์การจัดกลุ่มรายบุคคลเกี่ยวกับระดับความเครียดและวิธีการจัดการความเครียด',
+                questionIntro: 'พยายามคิดถึงปัญหาหนึ่งที่คุณเผชิญหน้ามาในช่วงหกเดือนที่ผ่านมาหรือหลังจากนั้น ควรเป็นปัญหาที่สำคัญกับคุณและทำให้คุณรู้สึกกังวล (ปัญหาแบบใดก็ได้ตั้งแต่สูญเสียคนรัก กังวลเกี่ยวกับการสอบใบขับขี่ หรือแม้กระทั่งปัญหาด้านการเรียน)',
+                Faculty: 'คณะ',
+                facultyOptions: {
+                    'Select a Faculty': 'เลือกคณะ',
+                    'Faculty of Law': 'คณะนิติศาสตร์',
+                    'Faculty of Nursing': 'คณะพยาบาลศาสตร์',
+                    'Faculty of Medicine': 'คณะแพทยศาสตร์',
+                    'Faculty of Economics': 'คณะเศรษฐศาสตร์',
+                    'Faculty of Engineering': 'คณะวิศวกรรมศาสตร์',
+                    'Faculty of Public Health': 'คณะสาธารณสุขศาสตร์',
+                    'Faculty of Political Science': 'คณะรัฐศาสตร์',
+                    'Faculty of Social Administration': 'คณะสังคมสงเคราะห์ศาสตร์',
+                    'Faculty of Fine and Applied Arts': 'คณะศิลปกรรมศาสตร์',
+                    'Faculty of Allied Health Sciences': 'คณะสหเวชศาสตร์',
+                    'Faculty of Science and Technology': 'คณะวิทยาศาสตร์และเทคโนโลยี',
+                    'Faculty of Sociology and Anthropology': 'คณะสังคมวิทยาและมานุษยวิทยา',
+                    'Faculty of Commerce and Accountancy': 'คณะพาณิชยศาสตร์และการบัญชี',
+                    'Faculty of Journalism and Mass Communication': 'คณะวารสารศาสตร์และสื่อสารมวลชน',
+                    'College of Interdisciplinary Studies': 'วิทยาลัยสหวิทยาการ',
+                    'Sirindhorn International Institute of Technology': 'สถาบันเทคโนโลยีนานาชาติสิรินธร'
+                },
+                FacultySelect: 'เลือกคณะ',
+                Gender: 'เพศ',
+                genderOptions: {
+                    'Male': 'ชาย',
+                    'Female': 'หญิง',
+                    'N/A': 'ไม่ระบุ',
+                    'LGBTQ+': 'LGBTQ+'
+                },
+                year : 'ชั้นปีการศึกษา',
+                questions: {
+                    Q1: 'คุณมีปวดหัวบ่อยแค่ไหน?',
+                    Q2: 'คุณมีปัญหาในการนอนหลับหรือไม่?',
+                    Q3: 'คุณรู้สึกว่าตัวเองกังวลมากน้อยเพียงใด?',
+                    Q4: 'คุณปวดท้องหรือคลื่นไส้หรือไม่? บ่อยแค่ไหน?',
+                    Q5: 'คุณรู้สึกเหนื่อยหรือร่างกายอ่อนเพลียบ่อยแค่ไหน?',
+                    Q6: 'คุณรู้สึกว่าบ่อยเท่าไรเมื่อคุณไม่สามารถตอบโจทย์ความคาดหวังของพ่อแม่ของคุณ?',
+                    Q7: 'คุณพบว่ามีความยากลำบากในการเข้ากับกับเพื่อนร่วมชั้นหรือไม่? มีความบ่อยเท่าไร?',
+                    Q8: 'คุณรู้สึกท้อแท้หลังจากการทะเลาะกับคนสำคัญของคุณบ่อยเท่าไร?',
+                    Q9: 'คุณรู้สึกว่าได้รับการสนับสนุนไม่เพียงพอจากครูหรือไม่? มีความบ่อยเท่าไร?',
+                    Q10: 'คุณรู้สึกถึงความซับซ้อนของภาระงานที่ต้องจัดการในหลักสูตรการศึกษาปัจจุบันบ่อยเท่าไร?',
+                    Q11: 'คุณเคยประสบปัญหาทางการเงินเนื่องจากค่าใช้จ่ายในมหาวิทยาลัยหรือไม่? มีความบ่อยเท่าไร?',
+                    Q12: 'คุณรู้สึกว่าตัวเองตื่นตระหนกบ่อยเท่าไร เมื่อต้องนำเสนอในห้องเรียน?',
+                    Q13: 'คุณรู้สึกเครียดเมื่อต้องเผชิญกับการสอบบ่อยเท่าไร?',
+                    Q14: 'มีความบ่อยเท่าไร? ในการสนใจเนื้อหาวิชาเรียนลดลง',
+                    Q15: 'คุณรู้สึกเครียดเมื่อต้องจัดการกับเรื่องที่ยากหรือไม่คุ้นเคย?',
+                    Q16: 'คุณรู้สึกเครียดเมื่อต้องจัดการกับสภาพแวดล้อมที่ย่ำแย่ในการอยู่บ่อยแค่ไหน',
+                    Q17: 'เสียงรบกวนรอบข้างมีผลต่อสมาธิของคุณหรือไม่ มีความบ่อยเท่าไหร่?',
+                    Q18: 'สภาพแวดล้อมในการดำเนินชีวิตที่ไม่เรียบร้อยมีผลต่อสมาธิของคุณหรือไม่ มีความบ่อยเท่าไหร่?',
+                    Q19: 'คุณรู้สึกไม่สบายตอนนอนเนื่องจากการรบกวนบ่อยแค่ไหน?',
+                    Q20: 'คุณรู้สึกกลัวในที่ที่ไม่คุ้นเคยบ่อยแค่ไหน?',
+                    Q21: 'คุณพิจารณาตัวเลือกต่าง ๆ บ่อย ๆ หรือไม่?',
+                    Q22: 'คุณพยายามแก้ไขปัญหาโดยใช้วิธีที่หลากหลายจนกว่าคุณจะค้นพบวิธีที่มีประสิทธิภาพที่สุด?',
+                    Q23: 'คุณมีสมาธิความสนใจและความสนใจทั้งหมดของคุณในการแก้ปัญหา',
+                    Q24: 'คุณพยายามแก้ปัญหาอย่างเต็มที่?',
+                    Q25: 'แทนที่จะยอมรับความกดดันจากสถานการณ์, คุณวางแผนการทำงานอย่างพิถีพิถัน?',
+                    Q26: 'คุณแบ่งปันความรู้สึกของคุณกับเพื่อนๆ บ่อยเท่าไหร่?',
+                    Q27: 'คุณยอมรับความเข้าใจและมุมมองจากผู้อื่นไหม?',
+                    Q28: 'คุณเชื่อใจเพื่อนหรือญาติ ในการพูดคุยเรื่องที่กังวลหรือความกลัวบ่อยแค่ไหน?',
+                    Q29: 'คุณพูดคุยปัญหากับผู้อื่นเพื่อหาทางแก้ไขบ่อยแค่ไหน?',
+                    Q30: 'คุณขอความช่วยเหลือจากผู้อื่น (เพื่อนหรือผู้เชี่ยวชาญ) เพื่อรู้สึกดีขึ้น?',
+                    Q31: 'บ่อยครั้งที่คุณนำตัวห่างจากปัญหา?',
+                    Q32: 'บ่อยครั้งที่คุณใช้เวลาคนเดียว?',
+                    Q33: 'คุณหลีกเลี่ยงการอยู่กับคนในชีวิตประจำวันบ่อยแค่ไหน?',
+                    Q34: 'บ่อยครั้งที่คุณทำกิจกรรมกีฬาหรืองานอดิเรกเพื่อเบี่ยงเบนความสนใจจากปัญหาที่เกิดขึ้น?',
+                    Q35: 'คุณนอนมากกว่าปกติ?',
+                },
+                options: {
+                    'Never': 'ไม่เคย',
+                    'Somewhat frequent': 'นาน ๆ ครั้ง',
+                    'Frequent': 'บ่อย',
+                    'Always': 'ตลอดเวลา',
+                    'Not at all': 'ไม่เลย',
+                    'A little': 'มีบ้างเล็กน้อย',
+                    'A lot': 'บ่อยครั้ง',
+                },
+                seeResultButton: 'เสร็จสิ้น'
+            }
+        };
+
+        function changeLanguage(language) {
+            
+            const questionIds = ['Q1', 'Q2', 'Q3','Q4','Q5','Q6', 'Q7', 'Q8','Q9','Q10','Q11', 'Q12', 'Q13','Q14','Q15','Q16', 'Q17', 'Q18','Q19','Q20','Q21','Q22','Q23','Q24','Q25','Q26','Q27','Q28','Q29','Q30','Q31','Q32','Q33','Q34','Q35'];
+
+            questionIds.forEach(questionId => {
+                const questionLabel = document.querySelector(`label[for="${questionId}"]`);
+                questionLabel.textContent = languageContent[language].questions[questionId];
+
+                const optionLabels = document.querySelectorAll(`input[name="${questionId}"] + label`);
+                optionLabels.forEach((label, index) => {
+                    label.textContent = languageContent[language].options[Object.keys(languageContent[language].options)[index]];
+                });
+            });
+
+            // Update gender label
+            const genderLabel = document.getElementById('Gender');
+            genderLabel.textContent = languageContent[language].Gender;
+
+            // Update gender options
+            const genderOptions = document.querySelectorAll('input[name="Gender"] + label');
+            genderOptions.forEach((label, index) => {
+                label.textContent = languageContent[language].genderOptions[Object.keys(languageContent[language].genderOptions)[index]];
+            });
+
+            // Update faculty label
+            const facultyLabel = document.querySelector('label[for="Faculty"]');
+            facultyLabel.textContent = languageContent[language].Faculty;
+
+            // Update faculty options
+            const facultyOptions = document.querySelectorAll('#Faculty option');
+            facultyOptions.forEach((option, index) => {
+                option.textContent = languageContent[language].facultyOptions[Object.keys(languageContent[language].facultyOptions)[index]];
+            });
+            // Update See Result button
+            const seeResultButton = document.querySelector('input[type="submit"]');
+            seeResultButton.value = languageContent[language].seeResultButton;
+            
+            const yearLabel = document.getElementById('Year');
+            yearLabel.textContent = languageContent[language].year;    
+
+            document.getElementById('surveyTitle').textContent = languageContent[language].surveyTitle;
+            document.getElementById('Intro1').textContent = languageContent[language].Intro1;
+            document.getElementById('Intro2').textContent = languageContent[language].Intro2;
+            document.getElementById('Intro3').textContent = languageContent[language].Intro3;
+            document.getElementById('questionIntro').innerHTML = languageContent[language].questionIntro;
+            document.getElementById('Faculty').innerHTML = languageContent[language].Faculty;
+            document.getElementById('FacultySelect').innerHTML = languageContent[language].FacultySelect;
+            document.getElementById('Gender').innerHTML = languageContent[language].Gender;
+            document.getElementById('Year').innerHTML = languageContent[language].Year;
+            
+        }
+
+        changeLanguage('en');
+    </script>
 </body>
 </html>
